@@ -2,8 +2,9 @@
 {
     public class Character
     {
+        public int Name { get; set; }
+        public int RaceId { get; set; }
 
-        public int MyProperty { get; set; }
-
+        public EntityRace Race { get; set; }
     }
 }

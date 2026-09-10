@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using AdventureGame.Models;
+using System.Text;
 
 namespace AdventureGame
 {
@@ -9,6 +10,13 @@ namespace AdventureGame
             Console.OutputEncoding = Encoding.UTF8;
 
             Console.WriteLine("🫃");
+            Console.WriteLine("Pick a race");
+            Entitylist championList = new Entitylist();
+            foreach (var charachter in championList.EntityList)
+            {
+                Console.WriteLine(charachter.Key + "  " +
+                charachter.Value.DisplayMenuName);
+            }
 
 
         }
