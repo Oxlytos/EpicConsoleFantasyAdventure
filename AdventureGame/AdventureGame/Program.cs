@@ -1,10 +1,16 @@
-﻿namespace AdventureGame
+﻿using System.Text;
+
+namespace AdventureGame
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, Robin!");
+            Console.OutputEncoding = Encoding.UTF8;
+
+            Console.WriteLine("🫃");
+
+
         }
     }
 }
