@@ -1,21 +1,23 @@
-﻿namespace AdventureGame.Models
+﻿using static AdventureGame.Models.EntityCollection;
+
+namespace AdventureGame.Models
 {
     public class EntityRace
     {
-        public string Name { get; set; }
+        public EntityEnum EntityType { get; set; }
         public string Sprite { get; set; }
-        public string DisplayMenuName => $"{Name}:  {Sprite}";
+        public string DisplayMenuName => $"{EntityType}:  {Sprite}";
 
     }
 
-    public class Entitylist
+    public class EntityCollection
     {
-        public Dictionary<int, EntityRace> entityList = new Dictionary<int, EntityRace>
+        public Dictionary<int, EntityRace> EntityDictionary = new Dictionary<int, EntityRace>
         {
-            { 1, new EntityRace { Name = "Warrior", Sprite = "💂‍" } },
-            { 2, new EntityRace { Name = "Wizard", Sprite = "🧙‍" } },
-            { 3, new EntityRace { Name = "Thief", Sprite = "🕵️" } },
-            { 4, new EntityRace { Name = "Robot", Sprite = "🤖" } }
+            { 1, new EntityRace { EntityType=EntityEnum.Warrior, Sprite = "💂‍" } },
+            { 2, new EntityRace { EntityType=EntityEnum.Wizard, Sprite = "🧙‍" } },
+            { 3, new EntityRace { EntityType=EntityEnum.Theif, Sprite = "🕵️" } },
+            { 4, new EntityRace { EntityType=EntityEnum.Robot, Sprite = "🤖" } }
         };
 
         public EntityRace? getRace(int? id)
@@ -24,18 +26,38 @@
             {
                 case null:
                     return null;
-                    break;
                 case 0:
                     return null;
-                    break;
                 case > 4:
                     return null;
-                    break;
                 default:
-                    return entityList[id.Value];
-                    break;
+                    return EntityDictionary[id.Value];
             }
         }
+        public EntityEnum GetRaceEnum(int? id)
+        {
+            switch (id)
+            {
+                case null:
+                    return EntityEnum.Invalid;
+                case 0:
+                    return EntityEnum.Invalid;
+                case > 4:
+                    return EntityEnum.Invalid;
+                default:
+                    return EntityDictionary[id.Value].EntityType;
+            }
+        }
+
+        public enum EntityEnum
+        {
+            Invalid =0,
+            Warrior = 1,
+            Wizard = 2,
+            Theif = 3,
+            Robot = 4
+        }
+
     }
 
 }

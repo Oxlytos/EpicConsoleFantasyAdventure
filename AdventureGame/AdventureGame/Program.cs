@@ -11,8 +11,8 @@ namespace AdventureGame
 
             Console.WriteLine("🫃");
             Console.WriteLine("Pick a race");
-            Entitylist championList = new Entitylist();
-            foreach (var charachter in championList.entityList)
+            EntityCollection championList = new EntityCollection();
+            foreach (var charachter in championList.EntityDictionary)
             {
                 Console.WriteLine(charachter.Key + "  " +
                 charachter.Value.DisplayMenuName);
@@ -24,7 +24,7 @@ namespace AdventureGame
                 switch (selectedChar)
                 {
                     case 1:
-                        Console.WriteLine(championList.entityList[selectedChar].DisplayMenuName);
+                        Console.WriteLine(championList.EntityDictionary[selectedChar].DisplayMenuName);
                         userPickInpuit = false;
                         break;
 
