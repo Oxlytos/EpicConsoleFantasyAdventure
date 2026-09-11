@@ -7,4 +7,9 @@
 
         public EntityRace Race { get; set; }
     }
+
+
+
+
+
 }

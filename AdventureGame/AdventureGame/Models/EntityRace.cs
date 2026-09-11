@@ -17,6 +17,29 @@
             { 3, new EntityRace { Name = "Thief", Sprite = "🕵️" } },
             { 4, new EntityRace { Name = "Robot", Sprite = "🤖" } }
         };
+
+        public EntityRace? getRace(int? id)
+        {
+            switch (id)
+            {
+                case null:
+                    return null;
+                    break;
+                case 0:
+                    return null;
+                    break;
+                case > 4:
+                    return null;
+                    break;
+                default:
+                    return new EntityRace[id]();
+                    break;
+            }
+        }
     }
 
 }
+
+
+
+

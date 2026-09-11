@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="AdventureGame/AdventureGame.csproj" />
+  <Project Path="AdventureGameTests/AdventureGameTests.csproj" Id="5d6a1636-2f87-4c31-8b20-1d84be224829" />
 </Solution>
