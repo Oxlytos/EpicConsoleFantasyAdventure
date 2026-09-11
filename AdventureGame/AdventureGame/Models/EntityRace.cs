@@ -10,7 +10,7 @@
 
     public class Entitylist
     {
-        public Dictionary<int, EntityRace> EntityList = new Dictionary<int, EntityRace>
+        public Dictionary<int, EntityRace> entityList = new Dictionary<int, EntityRace>
         {
             { 1, new EntityRace { Name = "Warrior", Sprite = "💂‍" } },
             { 2, new EntityRace { Name = "Wizard", Sprite = "🧙‍" } },
