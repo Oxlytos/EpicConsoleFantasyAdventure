@@ -32,7 +32,7 @@
                     return null;
                     break;
                 default:
-                    return new EntityRace[id]();
+                    return entityList[id.Value];
                     break;
             }
         }
