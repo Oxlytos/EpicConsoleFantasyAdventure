@@ -1,4 +1,5 @@
 ﻿using AdventureGame.Models;
+using AdventureGame.UserInputs;
 using Xunit;
 
 namespace AdventureGameTests
@@ -50,6 +51,31 @@ namespace AdventureGameTests
 
             //a
             Assert.Equal(race, result);
+        }
+
+
+        [Theory]
+        [InlineData("oscar", true)]
+        [InlineData("", false)]
+        [InlineData("1", false)]
+        [InlineData("oscar1", false)]
+        [InlineData("ssssssssssssssssssssssss", false)]
+        [InlineData(null, false)]
+        [InlineData("osc ar", false)]
+        [InlineData("$", false)]
+        [InlineData("Jesus, the son of Christ", false)]
+        public void UserChoosesName_LimitsToValidNames_NoNumbers(string name, bool expected)
+        {
+            //A
+            bool result;
+
+            //A
+            result = PickingCharacterInputs.ValidatePlayerName(name);
+
+            //Assert
+            Assert.Equal(expected, result);
+
+
         }
     }
 }

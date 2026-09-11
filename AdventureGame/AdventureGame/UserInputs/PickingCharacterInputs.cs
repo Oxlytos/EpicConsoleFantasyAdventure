@@ -1,4 +1,6 @@
-﻿using AdventureGame.Models;
+﻿using AdventureGame.Extensions;
+using AdventureGame.Models;
+using System.Text.RegularExpressions;
 
 namespace AdventureGame.UserInputs
 {
@@ -36,12 +38,36 @@ namespace AdventureGame.UserInputs
             character.Class =  thisClass;
 
         }
-        public static void PickName(Character character)
+        public static string PickName(Character character )
         {
             Console.WriteLine($"👲💬: 'Whatcha name, {character.Class.ClassTypeEnum}'?'");
+            //Console.WriteLine($"👲💬: 'Whatcha name, lardface'?'");
             string input = Console.ReadLine();
-            Console.WriteLine($"👲💬: 'Oh... it's {input}... intersting (They have a slight grin on their face)'");
-            character.PlayerName = input;
+            bool result = ValidatePlayerName(input);
+            if( result)
+            {
+                input = input.Capitalize();
+                Console.WriteLine($"👲💬: 'Oh... it's {input}... intersting (They have a slight grin on their face)'");
+                return input;
+            }
+            else
+            {
+                Console.WriteLine($"👲💬: 'I can't say that, that's gibberish! I'm calling you Jeff'");
+                return "Jeff";
+            }
+            
+           
+        }
+        public static bool ValidatePlayerName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return false;
+            }
+            Regex namePattern = new Regex(@"^([a-z]{3,15})$");
+
+            return namePattern.IsMatch(name.ToLower());
+
         }
     }
 }

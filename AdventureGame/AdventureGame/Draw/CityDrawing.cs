@@ -24,7 +24,7 @@ namespace AdventureGame.Draw
                 Console.Write("W");
                 for (int x = 0; x < Width; x++)
                 {
-                    Console.Write(" ");
+                    Console.Write("");
                 }
 
                 Console.WriteLine("W");
