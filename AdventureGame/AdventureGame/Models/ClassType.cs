@@ -4,9 +4,9 @@ namespace AdventureGame.Models
 {
     public class ClassType
     {
-        public ClassEnum classType { get; set; }
+        public ClassEnum ClassTypeEnum { get; set; }
         public string Sprite { get; set; }
-        public string DisplayMenuName => $"{classType}:  {Sprite}";
+        public string DisplayMenuName => $"{ClassTypeEnum}:  {Sprite}";
 
     }
 
@@ -14,10 +14,10 @@ namespace AdventureGame.Models
     {
         public Dictionary<int, ClassType> EntityDictionary = new Dictionary<int, ClassType>
         {
-            { 1, new ClassType { classType=ClassEnum.Warrior, Sprite = "💂‍" } },
-            { 2, new ClassType { classType=ClassEnum.Wizard, Sprite = "🧙‍" } },
-            { 3, new ClassType { classType=ClassEnum.Theif, Sprite = "🕵️" } },
-            { 4, new ClassType { classType=ClassEnum.Robot, Sprite = "🤖" } }
+            { 1, new ClassType { ClassTypeEnum=ClassEnum.Warrior, Sprite = "💂‍" } },
+            { 2, new ClassType { ClassTypeEnum=ClassEnum.Wizard, Sprite = "🧙‍" } },
+            { 3, new ClassType { ClassTypeEnum=ClassEnum.Theif, Sprite = "🕵️" } },
+            { 4, new ClassType { ClassTypeEnum=ClassEnum.Robot, Sprite = "🤖" } }
         };
 
         public ClassType? getRace(int? id)
@@ -45,7 +45,7 @@ namespace AdventureGame.Models
                 case > 4:
                     return ClassEnum.Invalid;
                 default:
-                    return EntityDictionary[id.Value].classType;
+                    return EntityDictionary[id.Value].ClassTypeEnum;
             }
         }
 

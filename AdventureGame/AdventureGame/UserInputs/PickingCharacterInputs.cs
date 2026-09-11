@@ -4,9 +4,8 @@ namespace AdventureGame.UserInputs
 {
     public static class PickingCharacterInputs
     {
-        public static ClassType PickRace()
+        public static void PickRace(Character character)
         {
-
             Console.WriteLine("🫃");
             Console.WriteLine("Pick a race");
             EntityCollection championList = new EntityCollection();
@@ -26,12 +25,23 @@ namespace AdventureGame.UserInputs
                 {
                     Console.WriteLine("Wrong input");
                 }
+                else
+                {
+                    userPickInpuit = false;
+                }
                 selectedCharScoped = selectedChar;
             }
             var thisClass = championList.EntityDictionary[selectedCharScoped];
             Console.WriteLine("You chose: " + thisClass.DisplayMenuName + "!");
-            return thisClass;
+            character.Class =  thisClass;
 
+        }
+        public static void PickName(Character character)
+        {
+            Console.WriteLine($"👲💬: 'Whatcha name, {character.Class.ClassTypeEnum}'?'");
+            string input = Console.ReadLine();
+            Console.WriteLine($"👲💬: 'Oh... it's {input}... intersting (They have a slight grin on their face)'");
+            character.PlayerName = input;
         }
     }
 }
