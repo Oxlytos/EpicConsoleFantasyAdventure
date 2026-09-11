@@ -19,7 +19,7 @@ namespace AdventureGameTests
         {
             //a
             var sut = new AdventureGame.Models.EntityCollection();
-            AdventureGame.Models.EntityRace pickedRace = new AdventureGame.Models.EntityRace();
+            AdventureGame.Models.ClassType pickedRace = new AdventureGame.Models.ClassType();
             bool result;
             //a
             var race = sut.getRace(inputNumber);
@@ -34,17 +34,17 @@ namespace AdventureGameTests
             Assert.Equal(valid, result);
         }
         [Theory]
-        [InlineData(null, EntityCollection.EntityEnum.Invalid)]
-        [InlineData(2, EntityCollection.EntityEnum.Wizard)]
-        [InlineData(3, EntityCollection.EntityEnum.Theif)]
-        [InlineData(4, EntityCollection.EntityEnum.Robot)]
-        [InlineData(1, EntityCollection.EntityEnum.Warrior)]
-        [InlineData(50, EntityCollection.EntityEnum.Invalid)]
-        public void UserInputsNumber_ReturnsExcpectedRaceEnum_IfValid(int? inputNumber, EntityCollection.EntityEnum race)
+        [InlineData(null, EntityCollection.ClassEnum.Invalid)]
+        [InlineData(2, EntityCollection.ClassEnum.Wizard)]
+        [InlineData(3, EntityCollection.ClassEnum.Theif)]
+        [InlineData(4, EntityCollection.ClassEnum.Robot)]
+        [InlineData(1, EntityCollection.ClassEnum.Warrior)]
+        [InlineData(50, EntityCollection.ClassEnum.Invalid)]
+        public void UserInputsNumber_ReturnsExcpectedRaceEnum_IfValid(int? inputNumber, EntityCollection.ClassEnum race)
         {
             //a
             var sut = new AdventureGame.Models.EntityCollection();
-            AdventureGame.Models.EntityRace pickedRace = new AdventureGame.Models.EntityRace();
+            AdventureGame.Models.ClassType pickedRace = new AdventureGame.Models.ClassType();
             //a
             var result = sut.GetRaceEnum(inputNumber);
 

@@ -2,10 +2,9 @@
 {
     public class Character
     {
-        public int Name { get; set; }
-        public int RaceId { get; set; }
+        public int PlayerName { get; set; }
 
-        public EntityRace Race { get; set; }
+        public ClassType Class { get; set; }
     }
 
 
