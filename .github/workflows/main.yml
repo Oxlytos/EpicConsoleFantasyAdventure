@@ -34,9 +34,8 @@ jobs:
       - name: matrix time
         run: |
           echo "Our matrix is: ${{ toJson(matrix) }}"
-          echo "${{ matrix.name}}s belongs to ${{ matrix.heroes}}"
-          echo "$The website destination is {{env.website}}"
-          echo "$The name of theWorkflow level  is used now is {{env.workflow-level}}"
-          echo "$The name of the game is {{env.game-title}}"
+          echo "${{matrix.name}}s belongs to ${{ matrix.heroes}}"
+          echo "The name of theWorkflow level  is used now is ${{env.workflow-level}}"
+          echo "The name of the game is ${{env.game-title}}"
 
 
