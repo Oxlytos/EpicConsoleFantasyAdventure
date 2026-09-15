@@ -2,7 +2,7 @@ name: WorkflowBasics
 on: workflow_dispatch
 env:
   workflow-level: UnlimitedScope
-  website: spotify.com
+  game-title: Adventure story
 
 jobs:
   print-some-stuff:
@@ -35,3 +35,8 @@ jobs:
         run: |
           echo "Our matrix is: ${{ toJson(matrix) }}"
           echo "${{ matrix.name}}s belongs to ${{ matrix.heroes}}"
+          echo "$The website destination is {{env.website}}"
+          echo "$The name of theWorkflow level  is used now is {{env.workflow-level}}"
+          echo "$The name of the game is {{env.game-title}}"
+
+
