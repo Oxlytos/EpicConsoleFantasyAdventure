@@ -8,7 +8,7 @@ jobs:
   print-some-stuff:
     runs-on: ubuntu-latest
     env:
-      job-level: warrior
+      job-level: warriorNotUsed
       
     strategy:
       matrix:
@@ -34,7 +34,7 @@ jobs:
       - name: matrix time
         run: |
           echo "Our matrix is: ${{ toJson(matrix) }}"
-          echo "${{matrix.name}}s belongs to ${{ matrix.heroes}}"
+          echo "${{ matrix.heroes}}'s belongs to  ${{matrix.name}}'s"
           echo "The name of theWorkflow level  is used now is ${{env.workflow-level}}"
           echo "The name of the game is ${{env.game-title}}"
 
