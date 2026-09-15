@@ -10,28 +10,28 @@ jobs:
     env:
       job-level: warrior
       
-   strategy:
-     matrix:
-       heroes: [Knife, Axe, Wand]
-       name: [Thief, Warrior, Wizard]
+    strategy:
+      matrix:
+        heroes: [Knife, Axe, Wand]
+        name: [Thief, Warrior, Wizard]
       
-   steps:
-     - name: setup another env var
-       env:
-         secret: 42
-       run: |
-         echo "with gh expression syntax {{ env.secret}}"
-         echo "with pure bash $secret"
+    steps:
+      - name: setup another env var
+        env:
+          secret: 42
+        run: |
+          echo "with gh expression syntax {{ env.secret}}"
+          echo "with pure bash $secret"
 
-     - name: print some stuff
-       env:
-         this-step: wizard
-       run: |
-         echo "Hello World from the wizard in the workflow"
-         echo "Our env is: ${{ toJson(env)}}"
-         echo "Our vars is: ${{ toJson(vars)}}"
+      - name: print some stuff
+        env:
+          this-step: wizard
+        run: |
+          echo "Hello World from the wizard in the workflow"
+          echo "Our env is: ${{ toJson(env)}}"
+          echo "Our vars is: ${{ toJson(vars)}}"
 
-     - name: matrix time
-       run: |
-         echo "Our matrix is: ${{ toJson(matrix) }}"
-         echo "${{ matrix.name}}s belongs to ${{ matrix.heroes}}"
+      - name: matrix time
+        run: |
+          echo "Our matrix is: ${{ toJson(matrix) }}"
+          echo "${{ matrix.name}}s belongs to ${{ matrix.heroes}}"
