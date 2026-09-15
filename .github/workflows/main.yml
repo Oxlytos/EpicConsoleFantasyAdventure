@@ -32,5 +32,5 @@ jobs:
 
       - name: matrix time
         run: |
-           echo "Our matrix is: ${{ toJson(matrix) }}"
-           echo "${{ matrix.name}}s belongs to ${{ matrix.heroes}}"
+          echo "Our matrix is: ${{ toJson(matrix) }}"
+          echo "${{ matrix.name}}s belongs to ${{ matrix.heroes}}"
