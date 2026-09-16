@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AdventureGame.Draw
+﻿namespace AdventureGame.Draw
 {
     public class CityDrawing
     {
         public int Width { get; set; }
         public int Height { get; set; }
+
+
+
 
         public void Draw()
         {
@@ -37,5 +36,23 @@ namespace AdventureGame.Draw
             }
         }
 
+        public bool ValidateCitySize(int? height, int? width)
+        {
+            if (height == null || width == null)
+            {
+                throw new ArgumentNullException("Cant be null");
+            }
+
+            if (height <= 0)
+            {
+                return false;
+            }
+            if (width <= 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }
