@@ -1,0 +1,41 @@
+name: WorkflowBasics
+on: workflow_dispatch
+env:
+  workflow-level: UnlimitedScope
+  game-title: Adventure story
+
+jobs:
+  print-some-stuff:
+    runs-on: ubuntu-latest
+    env:
+      job-level: warriorNotUsed
+      
+    strategy:
+      matrix:
+        heroes: [Knife, Axe, Wand]
+        name: [Thief, Warrior, Wizard]
+      
+    steps:
+      - name: setup another env var
+        env:
+          secret: 42
+        run: |
+          echo "with gh expression syntax {{ env.secret}}"
+          echo "with pure bash $secret"
+
+      - name: print some stuff
+        env:
+          this-step: wizard
+        run: |
+          echo "Hello World from the wizard in the workflow"
+          echo "Our env is: ${{ toJson(env)}}"
+          echo "Our vars is: ${{ toJson(vars)}}"
+
+      - name: matrix time
+        run: |
+          echo "Our matrix is: ${{ toJson(matrix) }}"
+          echo "${{ matrix.heroes}}'s belongs to  ${{matrix.name}}'s"
+          echo "The name of theWorkflow level  is used now is ${{env.workflow-level}}"
+          echo "The name of the game is ${{env.game-title}}"
+
+
