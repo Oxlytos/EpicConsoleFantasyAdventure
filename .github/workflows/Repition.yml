@@ -1,0 +1,22 @@
+name: RepitionWorkflow
+on: workflow_dispatch
+env:
+  oscars-favorit: Pizza-Tiramasu
+  robins-katt: Silco
+jobs:
+  yml-magic:
+    strategy:
+      matrix:
+        os: ["Ubuntu-Latest", "Windows-Latest"]
+    runs-on: ${{matrix.os}}
+    
+    steps:
+      - name: PrintSomeStuff
+        if: matrix.os != 'Windows-Latest'
+        run: |
+          echo "Current version is ${{matrix.os}}"
+        
+
+   
+        
+  
