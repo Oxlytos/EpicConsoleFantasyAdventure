@@ -40,7 +40,7 @@
         {
             if (height == null || width == null)
             {
-                throw new ArgumentNullException("Cant be null");
+                throw new ArgumentNullException(nameof(height), "City dimensions cannot be null");
             }
 
             if (height <= 0)

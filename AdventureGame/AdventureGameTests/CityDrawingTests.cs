@@ -6,6 +6,16 @@ namespace AdventureGameTests
     public class CityDrawingTests
     {
 
+        private readonly CityDrawing _sut = new();
+
+        [Theory]
+        [InlineData(null,null)]
+        public void CityInputGetsValideted_IfNull_ThrowError(int? height, int? width)
+        {
+            //Acting Assert, stores if it thorws
+            var ex = Assert.Throws<ArgumentNullException>(() => _sut.ValidateCitySize(height, width));
+            Assert.Contains("null", ex.Message, StringComparison.OrdinalIgnoreCase);
+        }
 
         [Theory]
         [InlineData(5, 0, false)]
@@ -16,28 +26,13 @@ namespace AdventureGameTests
         [InlineData(5, 5, true)]
         public void CityInputGetsANumber_DrawIfValid(int? height, int? width, bool expected)
         {
-            //Arrange
-
-            var sut = new CityDrawing();
 
             //Act
-            Assert.Throws<ArgumentNullException>(() => sut.ValidateCitySize(height, width)).Message.Contains("null");
-
-
-            bool result = sut.ValidateCitySize(height, width);
-
+            bool result = _sut.ValidateCitySize(height, width);
 
             //Assert
-            if (result == true)
-            {
+        
                 Assert.Equal(expected, result);
-            }
-            else
-            {
-
-
-
-            }
         }
 
     }
