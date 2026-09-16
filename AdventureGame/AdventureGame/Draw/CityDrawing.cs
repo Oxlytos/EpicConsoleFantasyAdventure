@@ -5,7 +5,8 @@
         public int Width { get; set; }
         public int Height { get; set; }
 
-
+        public int MinimalSize { get; set; } = 5;
+        public int MaximalSize { get; set; } = 25;
 
 
         public void Draw()
@@ -34,6 +35,41 @@
             {
                 Console.Write("H");
             }
+        }
+
+        public int GetArea(int? width, int? height)
+        {
+            bool valid = ValidateCitySize(width, height);
+            if (valid)
+            {
+                return width.Value * height.Value;
+
+            }
+            throw new ArgumentNullException(nameof(width));
+        }
+
+        public int GetMaximalArea()
+        {
+
+            return MaximalSize * MaximalSize;
+        }
+
+        public int GetMaximalSize()
+        {
+
+
+            return MaximalSize;
+        }
+
+        public int GetMinimalArea()
+        {
+            return MinimalSize * MinimalSize;
+        }
+
+        public int GetMinimalSize()
+        {
+            return MinimalSize;
+
         }
 
         public bool ValidateCitySize(int? height, int? width)
